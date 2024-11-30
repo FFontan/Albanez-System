@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastrar Funcionario</title>
+</head>
+<body>
+<h1>Cadastro de Funcionario</h1>
+
+<form action="#" th:action="@{/funcionarios}" th:object="${funcionario}" method="post">
+  <label for="cpf">CPF:</label>
+  <input type="text" id="cpf" th:field="*{documento}" required/><br>
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" th:field="*{nome}" required/><br>
+
+  <label for="fone">Telefone:</label>
+  <input type="text" id="fone" th:field="*{telefone}" required/><br>
+
+  <label for="data_nasc">Data De Nascimento:</label>
+  <input type="date" id="data_nasc" th:field="*{data_nasc}"/><br>
+
+  <button type="submit">Cadastrar</button>
+</form>
+
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>
