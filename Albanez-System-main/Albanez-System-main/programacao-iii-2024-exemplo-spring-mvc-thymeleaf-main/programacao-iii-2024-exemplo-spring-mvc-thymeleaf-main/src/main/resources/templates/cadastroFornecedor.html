@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Fornecedor</title>
+</head>
+<body>
+<h1>Cadastro de Fornecedor</h1>
+
+<form action="#" th:action="@{/fornecedores}" th:object="${fornecedor}" method="post">
+    <label for="documento">CNPJ:</label>
+    <input type="text" id="documento" th:field="*{documento}" required/><br>
+
+    <label for="nomeFantasia">Nome Fantasia:</label>
+    <input type="text" id="nomeFantasia" th:field="*{nomeFantasia}" required/><br>
+
+    <label for="inscricaoEstadual">Inscrição Estadual:</label>
+    <input type="text" id="inscricaoEstadual" th:field="*{inscricaoEstadual}" required/><br>
+
+    <label for="razaoSocial">Razão Social:</label>
+    <input type="text" id="razaoSocial" th:field="*{razaoSocial}"/><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" th:field="*{telefone}"/><br>
+
+    <label for="logradouro">Logradouro:</label>
+    <input type="text" id="logradouro" th:field="*{endereco.logradouro}"/><br>
+
+    <label for="numeroEndereco">Numero:</label>
+    <input type="text" id="numeroEndereco" th:field="*{endereco.numeroEndereco}"/><br>
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" th:field="*{endereco.bairro}"/><br>
+
+    <label for="cep">Cep:</label>
+    <input type="text" id="cep" th:field="*{endereco.cep}"/><br>
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" th:field="*{endereco.cidade}"/><br>
+
+    <label for="uf">UF:</label>
+    <input type="text" id="uf" th:field="*{endereco.uf}"/><br>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>

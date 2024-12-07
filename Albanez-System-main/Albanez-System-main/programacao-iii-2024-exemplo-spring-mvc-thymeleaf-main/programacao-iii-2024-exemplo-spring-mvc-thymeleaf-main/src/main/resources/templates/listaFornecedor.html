@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Fornecedores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Fornecedores</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CNPJ</th>
+        <th>Nome Fantasia</th>
+        <th>Inscrição Estadual</th>
+        <th>Razão Social</th>
+        <th>Telefone</th>
+        <th>Logradouro</th>
+        <th>Numero</th>
+        <th>Bairro</th>
+        <th>Cep</th>
+        <th>Cidade</th>
+        <th>UF</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="fornecedor : ${fornecedor}">
+        <td th:text="${fornecedor.id}"></td>
+        <td th:text="${fornecedor.documento}"></td>
+        <td th:text="${fornecedor.nomeFantasia}"></td>
+        <td th:text="${fornecedor.inscricaoEstadual}"></td>
+        <td th:text="${fornecedor.razaoSocial}"></td>
+        <td th:text="${fornecedor.telefone}"></td>
+        <td th:text="${fornecedor.endereco.logradouro}"></td>
+        <td th:text="${fornecedor.endereco.numeroEndereco}"></td>
+        <td th:text="${fornecedor.endereco.bairro}"></td>
+        <td th:text="${fornecedor.endereco.cep}"></td>
+        <td th:text="${fornecedor.endereco.cidade}"></td>
+        <td th:text="${fornecedor.endereco.uf}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Produto</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Preço De Custo</th>
+        <th>Preço De Venda</th>
+        <th>Quantidade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produto : ${produto}">
+        <td th:text="${produto.id}"></td>
+        <td th:text="${produto.descricao}"></td>
+        <td th:text="${produto.precoCusto}"></td>
+        <td th:text="${produto.precoVenda}"></td>
+        <td th:text="${produto.quantidade}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>

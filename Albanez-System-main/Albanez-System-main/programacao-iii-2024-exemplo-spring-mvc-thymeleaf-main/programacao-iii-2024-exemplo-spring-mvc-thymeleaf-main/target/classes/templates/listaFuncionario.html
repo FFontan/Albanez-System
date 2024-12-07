@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Funcionario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Funcionario</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Fone</th>
+        <th>Data De Nascimento</th>
+        <th>Salário</th>
+        <th>Logradouro</th>
+        <th>Numero</th>
+        <th>Bairro</th>
+        <th>Cep</th>
+        <th>Cidade</th>
+        <th>UF</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="funcionario : ${funcionario}">
+        <td th:text="${funcionario.id}"></td>
+        <td th:text="${funcionario.documento}"></td>
+        <td th:text="${funcionario.nome}"></td>
+        <td th:text="${funcionario.telefone}"></td>
+        <td th:text="${funcionario.data_nasc}"></td>
+        <td th:text="${funcionario.salario}"></td>
+        <td th:text="${funcionario.endereco.logradouro}"></td>
+        <td th:text="${funcionario.endereco.numeroEndereco}"></td>
+        <td th:text="${funcionario.endereco.bairro}"></td>
+        <td th:text="${funcionario.endereco.cep}"></td>
+        <td th:text="${funcionario.endereco.cidade}"></td>
+        <td th:text="${funcionario.endereco.uf}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>
