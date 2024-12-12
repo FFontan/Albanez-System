@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Pedido</title>
+</head>
+<body>
+<h1>Cadastrar Pedido</h1>
+
+<!-- Formulário para dados do pedido -->
+<form action="/salvarPedido" method="post" th:object="${pedido}">
+    <!-- Seleção de fornecedor -->
+    <div>
+        <label for="fornecedor">Fornecedor:</label>
+        <select id="fornecedor" th:field="*{fornecedorId}">
+            <option th:each="fornecedor : ${fornecedores}"
+                    th:value="${fornecedor.id}"
+                    th:text="${fornecedor.nomeFantasia}"></option>
+        </select>
+    </div>
+
+    <!-- Itens do pedido -->
+    <h2>Itens do Pedido</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${pedido.itens}">
+            <td th:text="${item.produtoId.descricao}"></td>
+            <td th:text="${item.preco}"></td>
+            <td th:text="${item.quantidade}"></td>
+            <td th:text="${item.total}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Seleção de data de entrega -->
+    <div>
+        <label for="dataEntrega">Data de Entrega:</label>
+        <input type="date" id="dataEntrega" th:field="*{dataEntrega}" required/>
+    </div>
+
+    <button type="submit">Salvar Pedido</button>
+</form>
+
+<!-- Formulário para adicionar produtos -->
+<h2>Adicionar Produto</h2>
+<form action="/pedido/adicionarProduto" method="post">
+    <div>
+        <label for="produtoId">Produto:</label>
+        <select id="produtoId" name="produtoId">
+            <option th:each="produto : ${produtos}"
+                    th:value="${produto.id}"
+                    th:text="${produto.descricao}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" required/>
+    </div>
+    <button type="submit">Adicionar Produto</button>
+</form>
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>

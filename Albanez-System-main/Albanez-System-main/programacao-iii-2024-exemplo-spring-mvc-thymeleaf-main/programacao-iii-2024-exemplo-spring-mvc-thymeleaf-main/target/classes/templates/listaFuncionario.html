@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Funcionário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #E0FFF; /* Fundo azul claro */
+            color: #000; /* Texto preto para contraste */
+        }
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #E0FFF; /* Azul escuro */
+            padding: 20px;
+            background-color: #1A237E; /* Dourado */
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+        }
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #fff; /* Fundo branco para a tabela */
+            border: 2px solid #1A237E; /* Borda azul escuro */
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #1A237E; /* Borda azul escuro */
+        }
+        th {
+            background-color: #FFD700; /* Dourado para cabeçalhos */
+            color: #000; /* Texto preto */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Cor de fundo alternada para linhas */
+        }
+        tr:hover {
+            background-color: #FFEB3B; /* Destaque amarelo para hover */
+        }
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #1A237E; /* Azul escuro para o link */
+            padding: 10px 20px;
+            background-color: #FFD700; /* Dourado */
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+        }
+        a:hover {
+            background-color: #FFEB3B; /* Destaque no hover */
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra mais forte no hover */
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Funcionários</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Fone</th>
+        <th>Data De Nascimento</th>
+        <th>Salário</th>
+        <th>Logradouro</th>
+        <th>Numero</th>
+        <th>Bairro</th>
+        <th>Cep</th>
+        <th>Cidade</th>
+        <th>UF</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="funcionario : ${funcionario}">
+        <td th:text="${funcionario.id}"></td>
+        <td th:text="${funcionario.documento}"></td>
+        <td th:text="${funcionario.nome}"></td>
+        <td th:text="${funcionario.telefone}"></td>
+        <td th:text="${funcionario.data_nasc}"></td>
+        <td th:text="${funcionario.salario}"></td>
+        <td th:text="${funcionario.endereco.logradouro}"></td>
+        <td th:text="${funcionario.endereco.numeroEndereco}"></td>
+        <td th:text="${funcionario.endereco.bairro}"></td>
+        <td th:text="${funcionario.endereco.cep}"></td>
+        <td th:text="${funcionario.endereco.cidade}"></td>
+        <td th:text="${funcionario.endereco.uf}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="/">Voltar para a Página Inicial</a>
+</body>
+</html>
