@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Funcionário</title>
+</head>
+<body>
+<h1>Editar Funcionário</h1>
+
+<form action="#" th:action="@{/editarFuncionario/{id}(id=${funcionario.id})}" th:object="${funcionario}" method="post">
+    <div>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" th:field="*{nome}" required />
+    </div>
+    <div>
+        <label for="documento">Documento (CPF)</label>
+        <input type="text" id="documento" th:field="*{documento}" required />
+    </div>
+    <div>
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" th:field="*{telefone}" required />
+    </div>
+    <div>
+        <label for="data_nasc">Data de Nascimento</label>
+        <input type="date" id="data_nasc" th:field="*{data_nasc}" required />
+    </div>
+    <div>
+        <label for="salario">Salário</label>
+        <input type="number" id="salario" th:field="*{salario}" step="0.01" required />
+    </div>
+    <div>
+        <label for="logradouro">Logradouro</label>
+        <input type="text" id="logradouro" th:field="*{endereco.logradouro}" required />
+    </div>
+    <div>
+        <label for="numero">Número</label>
+        <input type="text" id="numero" th:field="*{endereco.numeroEndereco}" required />
+    </div>
+    <div>
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" th:field="*{endereco.bairro}" required />
+    </div>
+    <div>
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" th:field="*{endereco.cep}" required />
+    </div>
+    <div>
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" th:field="*{endereco.cidade}" required />
+    </div>
+    <div>
+        <label for="uf">UF</label>
+        <input type="text" id="uf" th:field="*{endereco.uf}" required />
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="/listaFuncionario">Voltar para a lista de funcionários</a>
+</body>
+</html>
